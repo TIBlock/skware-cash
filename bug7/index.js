@@ -5,7 +5,7 @@
 //*******************************************************
 function renderTransactions(transactions) {
 	var finalHTML = '<div class="buffer">TRANSACTIONS</div>';
-
+//found bug under finalHTML += transactionsHTML.join(); It is missing the selector in the .join() function. See below for fixed code.  
 	var transactionsHTML = transactions.map(function (transaction) {
 		var transactionHTML = `
 		<div class="transaction">
@@ -18,7 +18,7 @@ function renderTransactions(transactions) {
 		return transactionHTML;
 	});
 
-	finalHTML += transactionsHTML.join();
+	finalHTML += transactionsHTML.join('');
 
 	return finalHTML;
 }
